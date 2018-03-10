@@ -1,0 +1,203 @@
+[colors]
+transparent = #00000000
+background  = #50000000
+text        = #ffffffff
+
+; Material Design is my waifu
+segment-1   = #2196F3
+segment-2   = #29B6F6
+segment-3   = #4DD0E1
+segment-right-1 = #673AB7
+segment-right-2 = #AA00FF
+segment-right-3 = #FF4081
+
+[bar/top]
+font-0 = "Roboto:size=11;3"
+font-1 = "Knack Nerd Font:pixelsize=16;3"
+font-2 = "Knack Nerd Font:pixelsize=12;2"
+font-3 = "Knack Nerd Font:pixelsize=13;3"
+font-4 = "Source Han Sans JP:size=11;2"
+
+background = ${colors.background}
+height = 23
+
+modules-left   = user-host workspace mpd
+modules-center = clock
+modules-right  = volume network date
+
+monitor     = ${env:MONITOR:DVI-I-0}
+scroll-up   = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+[module/user-host]
+type            = custom/menu
+label-open      = " glics@hibiki "
+label-close     = " "
+label-separator = "  "
+
+;idfk how to set fonts for these ffs polybar documentation is shite
+menu-0-0      = "%{T3}"
+menu-0-0-exec = light-locker-command -l &
+menu-0-1      = "%{T3}⏾"
+menu-0-1-exec = systemctl suspend
+menu-0-2      = "%{T3}"
+menu-0-2-exec = i3-nagbar -t warning -m "Sei sicure di voler fare il logout?" -b "Sì" "i3-msg exit" &
+menu-0-3      = "%{T3}"
+menu-0-3-exec = i3-nagbar -t warning -m "Sei sicuro di voler riavviare?" -b "Sì" "reboot" &
+menu-0-4      = "%{T3}%{T-} "
+menu-0-4-exec = i3-nagbar -t warning -m "Sei sicuro di voler spegnere il PC?" -b "Sì" "poweroff" &
+
+format-background = ${colors.segment-1}
+format-foreground = ${colors.text}
+label-close-font       = 3
+
+format-suffix = 
+format-suffix-background = ${colors.segment-2}
+format-suffix-foreground = ${colors.segment-1}
+
+
+[module/workspace]
+type = internal/i3
+
+label-unfocused = ○
+label-focused   = ●
+label-unfocused-padding = 1
+label-focused-padding   = 1
+label-focused-font      = 3
+label-unfocused-font    = 3
+
+format-background = ${colors.segment-2}
+format-foreground = ${colors.text}
+
+format-prefix = " " 
+; I'll use prefix on next segment for this so i can hide it when mpd is stopped
+;format-suffix = ""
+;format-suffix-background = ${colors.segment-3}
+;format-suffix-foreground = ${colors.segment-2}
+
+
+[module/title]
+;rip tho
+type  = internal/xwindow
+label = %title%
+
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+
+label-song     = " %artist% - %title% "
+format-playing =  <label-song>
+format-paused  =  <label-song>
+format-stopped = ""
+
+format-playing-background = ${colors.segment-3}
+format-paused-background = ${colors.segment-3}
+
+format-prefix = "  "
+format-prefix-background = ${colors.segment-3}
+format-prefix-foreground = ${colors.segment-2}
+
+format-playing-prefix = ${self.format-prefix}
+format-paused-prefix  = ${self.format-prefix}
+
+format-suffix            = ""
+format-suffix-background = ${colors.background}
+format-suffix-foreground = ${colors.segment-3}
+
+; Holy shit the more I look at this the less I understand wtf I wrote
+format-playing-suffix = ${self.format-suffix}
+format-playing-suffix-foreground = ${self.format-suffix-foreground}
+format-playing-suffix-background = ${self.format-suffix-background}
+format-playing-prefix-foreground = ${self.format-prefix-foreground}
+format-playing-prefix-background = ${self.format-prefix-background}
+
+format-paused-suffix  = ${self.format-suffix}
+format-paused-suffix-background = ${self.format-suffix-background}
+format-paused-suffix-foreground = ${self.format-suffix-foreground}
+format-paused-prefix-background = ${self.format-prefix-background}
+format-paused-prefix-foreground = ${self.format-prefix-foreground}
+
+format-stopped-background = ${colors.background}
+format-stopped-foreground = ${self.format-prefix-foreground}
+
+
+[module/date]
+type     = internal/date
+interval = 1.0
+; I just love the japanese date notation
+date = "%{T3}%{T-}  %Y年 %m月 %d日"
+label = %date% %time%
+label-font = 5
+
+format-background = ${colors.segment-right-1}
+format-foreground = ${colors.text}
+
+format-prefix = " %{R}  "
+format-prefix-background = ${colors.segment-right-2}
+format-prefix-foreground = ${colors.segment-right-1}
+
+
+[module/network]
+type      = internal/network
+interface = wlp3s0f0u3
+
+label-connected     = " %{T4}%{T-} %local_ip%"
+label-disconnected  = " %{T4}%{T-} Disconnected"
+format-connected    = <label-connected>
+format-disconnected = <label-disconnected>
+
+format-connected-background    = ${colors.segment-right-2} 
+format-disconnected-background = ${colors.segment-right-2}
+
+format-connected-prefix            = "%{R} "
+format-connected-prefix-background = ${colors.segment-right-3}
+format-connected-prefix-foreground = ${colors.segment-right-2}
+
+format-disconnected-prefix            = "%{R} "
+format-disconnected-prefix-background = ${colors.segment-right-3}
+format-disconnected-prefix-foreground = ${colors.segment-right-2}
+
+
+[module/volume]
+type             = internal/volume
+;master-soundcard = hw:0
+master-mixer     = PCM 
+
+label-muted =  Muted
+
+ramp-volume-0 = "%{T4} "
+ramp-volume-1 = "%{T4} "
+ramp-volume-2 = "%{T4} "
+
+
+format-volume = <ramp-volume> <bar-volume>
+format-muted  = <label-muted>
+
+bar-volume-width = 6
+bar-volume-fill      = ─
+bar-volume-indicator = ⊙
+bar-volume-empty     = ─
+
+format-volume-foreground = ${colors.text}
+format-volume-background = ${colors.segment-right-3}
+format-muted-foreground  = ${colors.text}
+format-muted-background  = ${colors.segment-right-3}
+
+format-volume-suffix = " "
+format-muted-suffix  = " "
+
+format-volume-prefix            = "%{R} "
+format-volume-prefix-foreground = ${colors.segment-right-3}
+format-volume-prefix-background = ${colors.background}
+
+format-muted-prefix             = "%{R} "
+format-muted-prefix-foreground  = ${colors.segment-right-3}
+format-muted-prefix-background  = ${colors.background}
+
+
+[module/clock]
+type     = internal/date
+interval = 1.0
+time     = %H:%M:%S
+label    = %time%
