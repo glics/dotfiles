@@ -123,4 +123,9 @@ bindkey "\eOd" backward-word
 
 #Because Wynaut
 alias fetch="neofetch --w3m ~/Immagini/Senjougahara.png --crop_mode fit --size 304"
+
+#And this is where i got lazy af
 alias c="clear"
+alias q="exit"
+alias m="ncmpcpp"
+alias v="vim"

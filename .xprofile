@@ -1,6 +1,0 @@
-light-locker &
-compton &
-/home/glics/.fehbg &
-/home/glics/.screenlayout/mirror_HDMI.sh &
-mpd .config/mpd/mpd.conf &
-mpdscribble --conf .config/mpdscribble/mpdscribble.conf &

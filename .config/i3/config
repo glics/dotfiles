@@ -192,4 +192,12 @@ bindsym XF86AudioPrev  exec --no-startup-id mpc prev
 bindsym XF86AudioRaiseVolume exec "amixer sset 'PCM',0 5%+"
 bindsym XF86AudioLowerVolume exec "amixer sset 'PCM',0 5%-"
 
+exec --no-startup-id "/home/glics/.config/i3/run.sh"
 exec_always --no-startup-id "/home/glics/.config/i3/polybar.sh"
+
+# Function keys
+bindsym $mod+F1  gaps inner current plus  5
+bindsym $mod+F2  gaps inner current minus 5
+bindsym $mod+F3  gaps outer current plus  5
+bindsym $mod+F4  gaps outer current minus 5
+bindsym $mod+F11 fullscreen toggle
