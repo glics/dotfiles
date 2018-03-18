@@ -44,6 +44,8 @@ printf "Done. \nCopying vim color scheme... "
 
 rm -r .vim;                  cp -r $HOME/.vim/colors                 .vim/;
 
+cp -f $HOME/.vim/pack/dist/start/vim-airline/autoload/airline/themes/glics.vim .
+
 temp=$(cat $HOME/.fehbg)
 #quick explaination of the line below: cut out the 
 BG_PATH="${temp:29:${#temp}-31}" # minus 1 that's 3 quick maffs
