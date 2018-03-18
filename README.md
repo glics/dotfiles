@@ -2,3 +2,4 @@ I don't know how to make a readme.md please go away and leave me alone or look a
 
 ![Screenshot 1](Screen1.png)
 ![Screenshot 2](Screen2.png)
+![Screenshot 3](Screen3.png)

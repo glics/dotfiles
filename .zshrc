@@ -1,3 +1,27 @@
+
+#   ██████╗ ██╗     ██╗ ██████╗███████╗
+#  ██╔════╝ ██║     ██║██╔════╝██╔════╝
+#  ██║  ███╗██║     ██║██║     ███████╗
+#  ██║   ██║██║     ██║██║     ╚════██║
+#  ╚██████╔╝███████╗██║╚██████╗███████║
+#   ╚═════╝ ╚══════╝╚═╝ ╚═════╝╚══════╝
+#  ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
+#  ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝
+#  ██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗
+#  ██║  ██║██║   ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║
+#  ██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║
+#  ╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
+#     ███████╗███████╗██╗  ██╗██████╗  ██████╗
+#     ╚══███╔╝██╔════╝██║  ██║██╔══██╗██╔════╝
+#       ███╔╝ ███████╗███████║██████╔╝██║
+#      ███╔╝  ╚════██║██╔══██║██╔══██╗██║
+#  ██╗███████╗███████║██║  ██║██║  ██║╚██████╗
+#  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
+#   ███╗        ███╗
+#  ██╔██╗      ██╔██╗
+#  ╚═╝╚═╝█████╗╚═╝╚═╝
+#        ╚════╝
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -93,7 +117,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias zshconfig="mate ~/.zshrc"
 
-alias zshrc="vim ~/.zshrc; source ~/.zshrc"
+alias zshrc="vim ~/.zshrc && source ~/.zshrc"
 alias i3config="vim ~/.config/i3/config"
 alias clock="tty-clock -xcsB"
 alias pacman="sudo pacman"
@@ -105,6 +129,7 @@ alias invaders="~/scripts/spacey.sh"
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
 # Powerlevel9k configs
+POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_HOME_FOLDER_ABBREVIATION="%F{black}$(echo '\uF015')%F{white}"
 POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %H:%M:%S}"
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
@@ -114,6 +139,9 @@ POWERLEVEL9K_DIR_SHOW_WRITABLE=true
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_HOME_ICON=""
+POWERLEVEL9K_HOME_SUB_ICON=""
+POWERLEVEL9K_FOLDER_ICON=""
 
 # I like fish
 source ~/.oh-my-zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -122,8 +150,8 @@ bindkey "\eOc"  forward-word
 bindkey "\eOd" backward-word
 
 #Because Wynaut
-alias fetch="neofetch --w3m ~/Immagini/Senjougahara.png --crop_mode fit --size 304"
-
+alias fetch="neofetch --w3m ~/Immagini/ddlclogo.png --crop_mode fit --size 304"
+alias f="fetch"
 #And this is where i got lazy af
 alias c="clear"
 alias q="exit"
