@@ -1,4 +1,4 @@
-
+#
 #   ██████╗ ██╗     ██╗ ██████╗███████╗
 #  ██╔════╝ ██║     ██║██╔════╝██╔════╝
 #  ██║  ███╗██║     ██║██║     ███████╗
@@ -21,17 +21,17 @@
 #  ██╔██╗      ██╔██╗
 #  ╚═╝╚═╝█████╗╚═╝╚═╝
 #        ╚════╝
-
+#
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/glics/.oh-my-zsh
+export ZSH=/home/glics/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -82,9 +82,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,12 +112,12 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias zshconfig="mate ~/.zshrc"
+
+POWERLEVEL9K_MODE="nerdfont-complete"
 
 alias zshrc="vim ~/.zshrc && source ~/.zshrc"
 alias i3config="vim ~/.config/i3/config"
-alias clock="tty-clock -xcsB"
+alias clock="tty-clock -csB"
 alias pacman="sudo pacman"
 
 # Some fancy shit
@@ -129,7 +127,6 @@ alias invaders="~/scripts/spacey.sh"
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
 # Powerlevel9k configs
-POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_HOME_FOLDER_ABBREVIATION="%F{black}$(echo '\uF015')%F{white}"
 POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %H:%M:%S}"
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
@@ -143,17 +140,17 @@ POWERLEVEL9K_HOME_ICON=""
 POWERLEVEL9K_HOME_SUB_ICON=""
 POWERLEVEL9K_FOLDER_ICON=""
 
+#Because Wynaut
+alias fetch="neofetch --w3m ~/Immagini/ddlclogo.png --crop_mode fit --size 304"
+#And this is where i got lazy af
+alias f="fetch"
+alias c="clear"
+alias q="exit"
+alias m="ncmpcpp"
+alias v="vim"
+
 # I like fish
 source ~/.oh-my-zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 bindkey "\eOc"  forward-word
 bindkey "\eOd" backward-word
-
-#Because Wynaut
-alias fetch="neofetch --w3m ~/Immagini/ddlclogo.png --crop_mode fit --size 304"
-alias f="fetch"
-#And this is where i got lazy af
-alias c="clear"
-alias q="exit"
-alias m="ncmpcpp"
-alias v="vim"

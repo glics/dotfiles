@@ -28,6 +28,7 @@ set showtabline=2
 set autoindent
 set expandtab
 set noshowmode
+set showcmd
 set mouse:a
 set ttimeoutlen=10
 
