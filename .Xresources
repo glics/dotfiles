@@ -63,7 +63,7 @@
 !urxvt stuff
 urxvt.scrollBar:      false
 urxvt*depth:          32
-urxvt.background:     [85]#000000
+urxvt.background:     [80]#000000
 urxvt.internalBorder: 10
 urxvt.font:           xft:Knack Nerd Font:pixelsize=13
 !urxvt.letterspace:    -1

@@ -23,7 +23,7 @@
 
 [colors]
 transparent = #00000000
-background  = #CC000000
+background  = #AE000000
 text        = #ffffffff
 
 ; Material Design is my waifu
@@ -184,7 +184,7 @@ format-disconnected-prefix-foreground = ${colors.segment-right-2}
 
 [module/volume]
 type             = internal/volume
-master-soundcard = hw:0
+master-soundcard = hw:2
 ;IDFK, every pacman -Syu makes this not work if I don't specify the soundcard, or viceversa. Fuck you ALSA
 master-mixer     = PCM 
 

@@ -25,14 +25,15 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export TERM="xterm-256color"
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/glics/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-
+ZSH_THEME="powerlevel9k/powerlevel9k"
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -82,7 +83,7 @@ export ZSH=/home/glics/.oh-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,8 +111,6 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
 
 POWERLEVEL9K_MODE="nerdfont-complete"
 
@@ -123,8 +122,6 @@ alias pacman="sudo pacman"
 # Some fancy shit
 alias pipes="/usr/local/bin/pipes.sh -p 4 -f 60 -r 50000 -R"
 alias invaders="~/scripts/spacey.sh"
-
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
 # Powerlevel9k configs
 POWERLEVEL9K_HOME_FOLDER_ABBREVIATION="%F{black}$(echo '\uF015')%F{white}"
@@ -141,7 +138,7 @@ POWERLEVEL9K_HOME_SUB_ICON=""
 POWERLEVEL9K_FOLDER_ICON=""
 
 #Because Wynaut
-alias fetch="neofetch --w3m ~/Immagini/ddlclogo.png --crop_mode fit --size 304"
+alias fetch="neofetch --w3m ~/Immagini/Senjougahara.png --crop_mode fit --size 304"
 #And this is where i got lazy af
 alias f="fetch"
 alias c="clear"
@@ -150,7 +147,5 @@ alias m="ncmpcpp"
 alias v="vim"
 
 # I like fish
-source ~/.oh-my-zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 bindkey "\eOc"  forward-word
 bindkey "\eOd" backward-word

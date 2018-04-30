@@ -178,7 +178,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 bindsym $mod+f exec firefox
-#  ¯\_(ツ)_/¯
+# owo what's this?
 bindsym $mod+Shift+f exec firefox --private-window "https://nhentai.net"
 # Until I decide to set up ranger:
 bindsym $mod+a exec nautilus
@@ -195,7 +195,7 @@ focus_follows_mouse no
 
 # Real tiling wms got gaps
 for_window [class="^.*"] border pixel 0
-gaps inner 15 
+gaps inner 5 
 smart_gaps on
 
 # Media controls
@@ -208,8 +208,8 @@ bindsym XF86AudioNext  exec --no-startup-id mpc next
 bindsym XF86AudioPrev  exec --no-startup-id mpc prev
 
 # Volume controls via ALSA (f'n pulseaudio only gives me even more problems than ALSA)
-bindsym XF86AudioRaiseVolume exec "amixer -c 0 sset 'PCM',0 5%+"
-bindsym XF86AudioLowerVolume exec "amixer -c 0 sset 'PCM',0 5%-"
+bindsym XF86AudioRaiseVolume exec "amixer -c 2 sset 'PCM',0 5%+"
+bindsym XF86AudioLowerVolume exec "amixer -c 2 sset 'PCM',0 5%-"
 
 exec --no-startup-id "/home/glics/.config/i3/run.sh"
 exec_always --no-startup-id "/home/glics/.config/i3/polybar.sh"
