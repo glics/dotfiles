@@ -1,51 +1,31 @@
-#
-#   ██████╗ ██╗     ██╗ ██████╗███████╗
-#  ██╔════╝ ██║     ██║██╔════╝██╔════╝
-#  ██║  ███╗██║     ██║██║     ███████╗
-#  ██║   ██║██║     ██║██║     ╚════██║
-#  ╚██████╔╝███████╗██║╚██████╗███████║
-#   ╚═════╝ ╚══════╝╚═╝ ╚═════╝╚══════╝
-#  ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗███████╗
-#  ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝██╔════╝
-#  ██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗  ███████╗
-#  ██║  ██║██║   ██║   ██║   ██╔══╝  ██║██║     ██╔══╝  ╚════██║
-#  ██████╔╝╚██████╔╝   ██║   ██║     ██║███████╗███████╗███████║
-#  ╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝
-#     ███████╗███████╗██╗  ██╗██████╗  ██████╗
-#     ╚══███╔╝██╔════╝██║  ██║██╔══██╗██╔════╝
-#       ███╔╝ ███████╗███████║██████╔╝██║
-#      ███╔╝  ╚════██║██╔══██║██╔══██╗██║
-#  ██╗███████╗███████║██║  ██║██║  ██║╚██████╗
-#  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
-#   ███╗        ███╗
-#  ██╔██╗      ██╔██╗
-#  ╚═╝╚═╝█████╗╚═╝╚═╝
-#        ╚════╝
-#
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Path to your oh-my-zsh installation.
+export ZSH="/home/glics/.oh-my-zsh"
+
 export TERM="xterm-256color"
 
-# Path to your oh-my-zsh installation.
-export ZSH=/home/glics/.oh-my-zsh
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
+ #Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+
+POWERLEVEL9K_MODE="nerdfont-complete"
+
 ZSH_THEME="powerlevel9k/powerlevel9k"
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
@@ -73,17 +53,28 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(
+  git
+  zsh-completions
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
+
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,12 +85,36 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='nvim'
+
+# PowerLevel9k config
+
+prompt_logo() {
+  local content=" "
+  $1_prompt_segment "$0" "$2" "061" "255" "$content" ""
+}
+
+POWERLEVEL9K_DISABLE_RPROMPT=true
+
+POWERLEVEL9K_CONTEXT_DEFAULT_ICON=" "
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="061"
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="255"
+
+POWERLEVEL9K_DIR_HOME_BACKGROUND="038"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="038"
+POWERLEVEL9K_DIR_ETC_BACKGROUND="038"
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="038"
+
+POWERLEVEL9K_DIR_HOME_FOREGROUND="255"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="255"
+POWERLEVEL9K_DIR_ETC_FOREGROUND="255"
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="255"
+
+POWERLEVEL9K_SHORTEN_DIR_LENGTH="3"
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_DIR_PATH_SEPARATOR="  "
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(logo context_joined dir vcs)
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -112,40 +127,15 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-POWERLEVEL9K_MODE="nerdfont-complete"
-
-alias zshrc="vim ~/.zshrc && source ~/.zshrc"
-alias i3config="vim ~/.config/i3/config"
-alias clock="tty-clock -csB"
-alias pacman="sudo pacman"
-
-# Some fancy shit
-alias pipes="/usr/local/bin/pipes.sh -p 4 -f 60 -r 50000 -R"
-alias invaders="~/scripts/spacey.sh"
-
-# Powerlevel9k configs
-POWERLEVEL9K_HOME_FOLDER_ABBREVIATION="%F{black}$(echo '\uF015')%F{white}"
-POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %H:%M:%S}"
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-# (status root_indicator background_jobs time)
-POWERLEVEL9K_DIR_PATH_SEPARATOR=" $(echo '\ue0b1') "
-POWERLEVEL9K_DIR_SHOW_WRITABLE=true
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-POWERLEVEL9K_SHORTEN_DELIMITER=""
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_HOME_ICON=""
-POWERLEVEL9K_HOME_SUB_ICON=""
-POWERLEVEL9K_FOLDER_ICON=""
-
-#Because Wynaut
-alias fetch="neofetch --w3m ~/Immagini/Senjougahara.png --crop_mode fit --size 304"
-#And this is where i got lazy af
-alias f="fetch"
-alias c="clear"
 alias q="exit"
-alias m="ncmpcpp"
-alias v="vim"
+alias h="firefox --private-window 'http://tsumino.com/Books'"
+alias zshrc="vim /home/glics/.zshrc && source /home/glics/.zshrc"
+alias fetch="neofetch"
+alias pacman="sudo pacman"
+alias cl="clear"
+alias fetch="neofetch --w3m /home/glics/Pictures/Anime\ etc.\ renders/ika_musume.png --size 300px"
+alias vimrc="vim /home/glics/.config/nvim/init.vim"
+alias viminit="vimrc"
 
-# I like fish
-bindkey "\eOc"  forward-word
-bindkey "\eOd" backward-word
+bindkey "\e0c"  forward-word
+bindkey "\e0d" backward-word

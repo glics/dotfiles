@@ -1,6 +1,0 @@
-*~
-*.swp
-*.swo
-*.temp
-.config/mpd/*
-!.config/mpd/mpd.conf
