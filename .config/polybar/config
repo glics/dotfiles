@@ -1,50 +1,92 @@
+# vi:syntax=dosini
 [colors]
-transparent     = #00000000
-semitransparent = #55ffffff
-text            = #ffffffff
-teal            = #964DB6AC
+transparent      = #00000000
+semitransparent  = #55ffffff
+text             = #ffffffff
+dark             = #ff282a36
 
-[bar/bottom]
-modules-center = volume
+[bar/top]
+font-0              = "Noto Sans:size=11;2"
+font-1              = "GohuFont Nerd Font:style=uni-14;2"
+font-2              = "Noto Sans CJK JP:size=11;2"
+monitor             = ${env:MONITOR:DVI-I-0}
+height              = 24
+background          = ${colors.dark}
+module-margin-right = 4
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
-font-0           = "Symbola:pixelsize=12"
-font-1           = "Inconsolata Nerd Font:pixelsize=14;1"
-monitor          = ${env:MONITOR:DVI-I-0}
+border-top-size    = 6
+border-left-size   = 6
+border-right-size  = 6
 
-border-bottom-size   = 3
-border-bottom-color  = ${colors.teal}
-border-top-size      = 4
-border-top-color     = ${colors.transparent}
+tray-position      = right
+tray-background    = ${colors.dark}
+tray-padding       = 8
 
-bottom        = true
-height        = 34
-width         = 120
-offset-x      = 100%:-291
-offset-y      = 5
-background    = ${colors.transparent}
+modules-left       = i3
+modules-center     = mpd time
+modules-right      = volume network date
+
+#left modules
+
+[module/i3]
+type   = internal/i3
+format = <label-state> <label-mode>
+
+label-focused   = " 柳 "
+label-unfocused = "  "
+
+format-margin = 3
+
+# center modules
+
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+
+format-playing = "  <label-song> (<label-time>)"
+format-paused  = "  <label-song> "
+format-stopped =
+
+[module/time]
+type  = internal/date
+time  = %H:%M:%S
+label = "  %time%    "
+
+# right modules
 
 [module/volume]
 type             = internal/pulseaudio
 use-ui-max       = false
 
-label-muted =  Muted
+label-muted = Muted
 
-ramp-volume-0 = " "
-ramp-volume-1 = " "
-ramp-volume-2 = " "
+ramp-volume-0 = "奄 "
+ramp-volume-1 = "奔 "
+ramp-volume-2 = "墳 "
+label-volume  = "%percentage%%"
 
-border-bottom-size   = 2
-border-bottom-color  = ${colors.teal}
-
-format-volume = <ramp-volume> <bar-volume>
-format-muted  = <label-muted>
+format-volume = <ramp-volume> <label-volume>
+format-muted  = 婢  <label-muted>
 
 bar-volume-width = 6
-bar-volume-fill      = ━
-bar-volume-indicator =
-bar-volume-empty     = ─
 
 bar-volume-empty-foreground = ${colors.semitransparent}
 
 format-volume-foreground = ${colors.text}
-format-muted-foreground = ${colors.text}
+format-muted-foreground  = ${colors.text}
+
+[module/network]
+type      = internal/network
+interface = eth0
+
+format-connected    = <label-connected>
+format-disconnected = "  Not connected"
+label-connected     = "  %local_ip%"
+
+[module/date]
+type     = internal/date
+interval = 1.0
+date     = "  %Y-%m-%d"

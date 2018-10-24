@@ -4,9 +4,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/glics/.oh-my-zsh"
 
-export TERM="xterm-256color"
+export TERM="rxvt-256color"
 
- #Set name of the theme to load --- if set to "random", it will
+#Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -95,8 +95,8 @@ prompt_logo() {
 }
 
 POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(logo context_joined dir vcs)
 
-POWERLEVEL9K_CONTEXT_DEFAULT_ICON=" "
 POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="061"
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="255"
 
@@ -114,7 +114,6 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH="3"
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_DIR_PATH_SEPARATOR="  "
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(logo context_joined dir vcs)
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -136,6 +135,11 @@ alias cl="clear"
 alias fetch="neofetch --w3m /home/glics/Pictures/Anime\ etc.\ renders/ika_musume.png --size 300px"
 alias vimrc="vim /home/glics/.config/nvim/init.vim"
 alias viminit="vimrc"
+alias v="vim"
+alias z="zshrc"
+alias m="ncmpcpp"
 
 bindkey "\e0c"  forward-word
 bindkey "\e0d" backward-word
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line

@@ -1,6 +1,5 @@
 set number
 set showmatch
-set hlsearch
 set smartcase
 set ignorecase
 set incsearch
@@ -18,6 +17,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'townk/vim-autoclose'
+  Plug 'alvan/vim-closetag'
   Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
